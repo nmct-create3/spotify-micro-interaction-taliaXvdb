@@ -1,4 +1,5 @@
 @import "https://unpkg.com/open-props/easings.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
 
 :root {
     /* spotify colors*/
@@ -7,6 +8,8 @@
     --spotify-white: #ffffff;
     --spotify-grey: #b3b3b3;
     --spotify-darkGrey: #222222;
+
+    --global-fontFam: 'Manrope', sans-serif;
 }
 
 /* reset */
@@ -27,11 +30,22 @@ svg {
 
 /* global page styles */
 
-html {}
+html {
+    --background-color: var(--spotify-black);
+    --text-color: var(--spotify-white);
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--global-fontFam);
+}
 
 /* center everything */
 
-body {}
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
 
 /*
     Object: Button reset
@@ -69,6 +83,21 @@ body {}
 /*
     Album
 */
+
+.album{
+    --album-backgroundColor: var(--spotify-darkGrey);
+
+    max-width: 25rem;
+    background-color: var(--album-backgroundColor);
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+    & .album__img{
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+}
 
 /*
     Utitlities
