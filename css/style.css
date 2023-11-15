@@ -10,6 +10,11 @@
     --spotify-darkGrey: #222222;
 
     --global-fontFam: 'Manrope', sans-serif;
+
+    --global-space-s: 1rem;
+    --global-space-m: 1.5rem;
+
+    --currentColor: var(--spotify-white);
 }
 
 /* reset */
@@ -80,6 +85,41 @@ body {
     Toggle button
 */
 
+.toggle {
+    display: grid;
+    place-items: center;
+
+    & .toggle__icon {
+        grid-column: 1;
+        grid-row: 1;
+
+        transition: all 0.3s var(--ease-elastic-1);
+    }
+    
+    & .icon--add{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    & .icon--check{
+        opacity: 0;
+        transform: rotate(90deg);
+        fill: var(--spotify-green);
+        stroke: var(--spotify-green);
+    }
+
+    &.added{
+        & .icon--add{
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+        & .icon--check{
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+    }
+}
+
 /*
     Album
 */
@@ -89,12 +129,34 @@ body {
 
     max-width: 25rem;
     background-color: var(--album-backgroundColor);
-    padding: 1.5rem;
+    padding: var(--global-space-m);
     border-radius: 1rem;
 
     & .album__img{
         border-radius: 0.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: var(--global-space-s);
+    }
+
+    & .album__header{
+        display: grid;
+        grid-template-columns: 1fr 2rem;
+        grid-template-areas: 
+            'title button'
+            'artist button';
+    }
+
+    & .album__title{
+        grid-area: title;
+    }
+
+    & .album__artist{
+        grid-area: artist;
+    }
+
+    & .album__action{
+        grid-area: button;
+        fill: var(--currentColor);
+        stroke: var(--currentColor);
     }
 
 }
